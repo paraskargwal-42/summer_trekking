@@ -1,0 +1,173 @@
+k<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adventure Mountain Trekking Trail Guide</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#home" class="logo">Summit<span>Safe</span> Treks</a>
+      <button id="menuBtn" aria-label="Open menu">&#9776;</button>
+      <ul id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#trails">Trails</a></li>
+        <li><a href="#altitude">Altitude Safety</a></li>
+        <li><a href="#checker">Safety Checker</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <h1>Climb high. Come back safe.</h1>
+    <p>Find a trekking trail that matches your fitness, and learn how to read your body at altitude before the mountain teaches you the hard way.</p>
+    <div class="hero-btns">
+      <a href="#trails" class="btn btn-main">Explore Trails</a>
+      <a href="#checker" class="btn btn-line">Check Altitude Safety</a>
+    </div>
+  </div>
+  <!-- Simple SVG mountains -->
+  <svg viewBox="0 0 1200 170" preserveAspectRatio="none" aria-hidden="true">
+    <polygon points="0,170 0,90 150,30 260,100 400,10 560,110 700,50 850,120 1000,40 1200,110 1200,170" fill="#17332e" opacity=".45"/>
+    <polygon points="0,170 0,130 200,80 330,135 520,70 700,140 900,90 1050,140 1200,100 1200,170" fill="#f4f7f6"/>
+  </svg>
+</section>
+
+<!-- ================= TRAILS ================= -->
+<section id="trails">
+  <div class="wrap">
+    <h2 class="section-title">Trekking trails</h2>
+    <p class="section-sub">Six popular Himalayan treks. Use the buttons to show only the difficulty you are comfortable with.</p>
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-level="All">All</button>
+      <button class="filter-btn" data-level="Easy">Easy</button>
+      <button class="filter-btn" data-level="Moderate">Moderate</button>
+      <button class="filter-btn" data-level="Difficult">Difficult</button>
+    </div>
+    <div class="grid" id="trailGrid"></div>
+  </div>
+</section>
+
+<!-- ================= ALTITUDE SAFETY ================= -->
+<section id="altitude" style="background: var(--card);">
+  <div class="wrap">
+    <h2 class="section-title">Altitude safety</h2>
+    <p class="section-sub">The higher you go, the less oxygen each breath gives you. Know which zone you are in.</p>
+
+    <div class="zones">
+      <div class="zone z1"><h3>Low</h3><div class="range">Below 1,500 m</div><p>Altitude problems are very rare.</p></div>
+      <div class="zone z2"><h3>Moderate</h3><div class="range">1,500 – 2,500 m</div><p>Mild effects possible for sensitive people.</p></div>
+      <div class="zone z3"><h3>High</h3><div class="range">2,500 – 3,500 m</div><p>Altitude sickness can begin. Ascend slowly.</p></div>
+      <div class="zone z4"><h3>Very high</h3><div class="range">3,500 – 5,500 m</div><p>Common sickness. Acclimatise and rest often.</p></div>
+      <div class="zone z5"><h3>Extreme</h3><div class="range">Above 5,500 m</div><p>Body cannot fully adapt. Experts only.</p></div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info">
+        <h3>Symptoms</h3>
+        <ul>
+          <li>Headache that does not go away</li>
+          <li>Nausea or loss of appetite</li>
+          <li>Dizziness and unusual tiredness</li>
+          <li>Trouble sleeping</li>
+          <li>Severe cases: confusion, breathlessness at rest, a wet cough</li>
+        </ul>
+      </div>
+      <div class="info">
+        <h3>Prevention</h3>
+        <ul>
+          <li>Climb slowly. Above 3,000 m, add no more than 500 m of sleeping height per day.</li>
+          <li>Take a rest day every 3 to 4 days.</li>
+          <li>Drink 3 to 4 litres of water daily.</li>
+          <li>Avoid alcohol and smoking.</li>
+          <li>Climb high, sleep low when you can.</li>
+        </ul>
+      </div>
+      <div class="info emergency">
+        <h3>Emergency steps</h3>
+        <ul>
+          <li>Stop climbing at the first symptoms and rest.</li>
+          <li>If symptoms get worse, go down at least 300 to 500 m straight away.</li>
+          <li>Never leave a sick person alone.</li>
+          <li>Give oxygen if the team has it.</li>
+          <li>Call local rescue or your guide. India emergency number: 112.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SAFETY CHECKER ================= -->
+<section id="checker">
+  <div class="wrap">
+    <h2 class="section-title">Altitude safety checker</h2>
+    <p class="section-sub">Enter where you are now and how experienced you are. This is general guidance, not medical advice.</p>
+    <div class="form-box">
+      <label for="altInput">Current altitude (metres)</label>
+      <input type="number" id="altInput" placeholder="e.g. 3800">
+      <p class="error" id="altError"></p>
+
+      <label for="expInput">Trekking experience</label>
+      <select id="expInput">
+        <option value="">Select your level</option>
+        <option value="beginner">Beginner (first or second trek)</option>
+        <option value="intermediate">Intermediate (a few treks)</option>
+        <option value="experienced">Experienced (many high treks)</option>
+      </select>
+      <p class="error" id="expError"></p>
+
+      <button class="btn" id="checkBtn" type="button">Get safety advice</button>
+      <div class="result" id="result" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" style="padding-top:0;">
+  <div class="wrap">
+    <div class="about-box">
+      <h2>About this guide</h2>
+      <p>SummitSafe Treks is a student project built to help new trekkers pick a suitable trail and understand the risks of altitude. Most altitude emergencies happen because people climb too fast, not because the mountain is too hard. Our goal is simple: clear information, honest warnings, and a safe return for everyone.</p>
+      <p>Built with plain HTML, CSS and JavaScript. The trail data is approximate. Always confirm conditions with a local guide before you go.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" style="background: var(--card);">
+  <div class="wrap contact-layout">
+    <div>
+      <h2 class="section-title">Contact the trek team</h2>
+      <p class="section-sub">Ask about a trail, group bookings, or safety gear. We reply within two days.</p>
+    </div>
+    <div class="form-box">
+      <label for="cName">Name</label>
+      <input type="text" id="cName">
+      <p class="error" id="nameError"></p>
+      <label for="cEmail">Email</label>
+      <input type="email" id="cEmail">
+      <p class="error" id="emailError"></p>
+      <label for="cMsg">Message</label>
+      <textarea id="cMsg"></textarea>
+      <p class="error" id="msgError"></p>
+      <button class="btn" id="sendBtn" type="button">Send message</button>
+      <div class="result safe" id="contactResult" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 SummitSafe Treks. Hackathon project. Not a substitute for professional medical advice.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
